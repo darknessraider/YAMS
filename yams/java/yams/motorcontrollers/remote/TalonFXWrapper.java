@@ -726,9 +726,8 @@ public class TalonFXWrapper extends SmartMotorController
         // Zero offset
         if (config.getZeroOffset().isPresent())
         {
-          cfg.MagnetSensor.withMagnetOffset(encoder.getPosition().getValue()
-                                                   .plus(Rotations.of(cfg.MagnetSensor.MagnetOffset))
-                                                   .minus(config.getZeroOffset().get()));
+          cfg.MagnetSensor.withMagnetOffset(config.getZeroOffset().get());
+
           m_talonConfig.Feedback.FeedbackRotorOffset = 0;
         }
         // Discontinuity Point
